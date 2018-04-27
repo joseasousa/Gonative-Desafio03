@@ -1,0 +1,15 @@
+{
+  "presets": ["react-native"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "test": "./__tests__",
+          "underscore": "lodash"
+        }
+      }
+    ]
+  ]
+}
