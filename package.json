@@ -9,9 +9,15 @@
     "lint": "eslint src"
   },
   "dependencies": {
+    "apisauce": "^0.14.3",
+    "axios": "^0.18.0",
+    "prop-types": "^15.6.1",
     "react": "16.3.1",
     "react-native": "0.55.3",
-    "react-native-maps": "^0.21.0"
+    "react-native-maps": "^0.21.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.0"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.15.0",
@@ -31,9 +37,12 @@
     "jest": "22.4.3",
     "react-dom": "^16.3.1",
     "react-test-renderer": "16.3.1",
-    "reactotron-react-native": "^1.14.0",
+    "reactotron-apisauce": "^1.13.0",
+    "reactotron-redux": "^1.13.0",
+    "reactotron-redux-saga": "^1.13.0",
     "redux-saga-tester": "^1.0.379",
-    "sinon": "^4.5.0"
+    "sinon": "^4.5.0",
+    "reactotron-react-native": "^1.14.0"
   },
   "jest": {
     "preset": "react-native",

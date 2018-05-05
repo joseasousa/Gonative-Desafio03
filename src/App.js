@@ -1,20 +1,14 @@
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-} from 'react-native';
-import Maps from 'components/Maps';
+import { Provider } from 'react-redux';
 
-const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-  },
-});
+import Maps from 'pages/maps';
+
+import store from 'store';
 
 const App = () => (
-  <View style={styles.container}>
+  <Provider store={store} >
     <Maps />
-  </View>
+  </Provider>
 );
 
 export default App;
