@@ -17,6 +17,8 @@
     "react-native-maps": "^0.21.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
+    "redux-mock-store": "^1.5.1",
+    "redux-persist": "^5.9.1",
     "redux-saga": "^0.16.0"
   },
   "devDependencies": {
@@ -38,11 +40,11 @@
     "react-dom": "^16.3.1",
     "react-test-renderer": "16.3.1",
     "reactotron-apisauce": "^1.13.0",
+    "reactotron-react-native": "^1.14.0",
     "reactotron-redux": "^1.13.0",
     "reactotron-redux-saga": "^1.13.0",
     "redux-saga-tester": "^1.0.379",
-    "sinon": "^4.5.0",
-    "reactotron-react-native": "^1.14.0"
+    "sinon": "^4.5.0"
   },
   "jest": {
     "preset": "react-native",

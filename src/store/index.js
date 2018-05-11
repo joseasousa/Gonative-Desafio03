@@ -1,20 +1,40 @@
 import { createStore, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
+import { persistStore, persistReducer } from 'redux-persist';
 
+import storage from 'redux-persist/lib/storage';
+import createSagaMiddleware from 'redux-saga';
+import 'config/ReactotronConfig';
 
 import sagas from './sagas';
 import reducers from './ducks';
 
-import 'config/ReactotronConfig';
+const persistConfig = {
+  key: 'root',
+  storage,
+};
 
-const sagaMonitor = __DEV__ ? tron.createSagaMonitor() : null;
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+const sagaMonitor = __DEV__
+  ? tron.createSagaMonitor()
+  : null;
+
 const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 
 const middleware = [sagaMiddleware];
-tron.log('teste');
-const createAppropriateStore = __DEV__ ? tron.createStore : createStore;
-const store = createAppropriateStore(reducers, applyMiddleware(...middleware));
+
+const createAppropriateStore = __DEV__
+  ? tron.createStore
+  : createStore;
+
+const store = createAppropriateStore(
+  persistedReducer,
+  applyMiddleware(...middleware),
+);
 
 sagaMiddleware.run(sagas);
 
-export default store;
+const persistor = persistStore(store);
+
+export { store, persistor };

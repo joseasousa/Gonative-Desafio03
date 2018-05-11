@@ -1,13 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import Maps from 'pages/maps';
 
-import store from 'store';
+import { store, persistor } from 'store';
 
 const App = () => (
-  <Provider store={store} >
-    <Maps />
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <Maps />
+    </PersistGate>
   </Provider>
 );
 

@@ -62,6 +62,7 @@ class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
+        {console.log(this.props)}
         <MapView
           provider={PROVIDER_GOOGLE}
           showsPointsOfInterest={false}
@@ -71,7 +72,8 @@ class Main extends Component {
           initialRegion={this.state.region}
           onLongPress={this.onMapLongPress}
         >
-          {this.props.markers.map(marker => (
+          {this.props.markers.length > 0 &&
+          this.props.markers.map(marker => (
             <Marker
               key={marker.id}
               coordinate={marker.coordinate}
@@ -82,12 +84,21 @@ class Main extends Component {
               />
               <Callout>
                 <View style={styles.tooltip}>
+                  <Image
+                    style={styles.tooltipAvatar}
+                    source={{ uri: marker.avatar }}
+                  />
                   <Text style={styles.tooltipTitle}>{marker.user}</Text>
+
                   <Text>{marker.description}</Text>
+
                 </View>
               </Callout>
             </Marker>
-          ))}
+          ))
+
+          }
+
         </MapView>
         {this.state.modalVisible
           ? <Modal

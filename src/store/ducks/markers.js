@@ -1,3 +1,4 @@
+
 export const Types = {
   ADD_REQUEST: 'markers/ADD_REQUEST',
   ADD_SUCCESS: 'markers/ADD_SUCCESS',
@@ -8,6 +9,7 @@ const initialState = {
   mapMarkers: [],
   loading: false,
   errorOnAdd: null,
+  loaded: false,
 };
 
 export default function markers(state = initialState, action) {
@@ -19,7 +21,10 @@ export default function markers(state = initialState, action) {
       };
     case Types.ADD_SUCCESS:
       return {
-        mapMarkers: [...state.mapMarkers, action.payload.mapMarkers],
+        mapMarkers: [
+          ...state.mapMarkers,
+          action.payload.mapMarkers,
+        ],
         errorOnAdd: null,
         loading: false,
       };

@@ -20,10 +20,16 @@ const styles = StyleSheet.create({
     borderRadius: 32,
   },
 
+  tooltipAvatar: {
+    width: 40,
+    height: 40,
+  },
+
   tooltip: {
     width: metrics.screenWidth - (metrics.baseMargin * 6),
     padding: metrics.basePadding,
     borderRadius: metrics.baseRadius,
+
   },
 
   tooltipTitle: {
